@@ -93,25 +93,23 @@
 
 
 function processData(input) {
- input = prompt('enter word');
- const splitLines = input.trim("\r\n");
-//  const tr = input.trim(/\n/)
- console.log(splitLines)
- for (let el of splitLines){
- for(let a of el) {
-  console.log(a);
-  console.log(a.slice(/S;M|C;V|C;C|S;C|C;M:S;V/))
-  // console.log(b);
-  // console.log(c);
- let d = [];
-d = a;
- console.log(d[0])
+//  input = prompt('enter word');
+splitWord = input.split(';');
+console.log(splitWord);
+let capLetter;
+let twoWords;
+if (splitWord[0] == 'S' && splitWord[1] == 'M'){
+trimmedWord = input.replace(/([S;M;()])/g, '');
+trimmedWord = trimmedWord.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+console.log(trimmedWord)
+    // console.log(trimmedWord.charAt(trimmedWord.indexOf(letter = letter.toUpperCase())));
+    // capLetter = trimmedWord.charAt(trimmedWord.lastIndexOf(letter = letter.toUpperCase())).toLowerCase();
 }
- }
-// console.log(tr)
-// console.log(tr.length)
+if (splitWord[0] == 'C' && splitWord[1] == 'V'){
+trimmedWord = input.replace(/([A-Z]) ([a-z])/g, str=> str.toLowerCase())
 }
-processData()
+}
+processData('S;M;plasticCup()')
 
 // S;M;plasticCup()
 
